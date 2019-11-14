@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- The content below is only a placeholder and can be replaced.
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
@@ -16,6 +16,44 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
 
-<router-outlet></router-outlet>
+<mat-toolbar class="header-toolbar" color="primary">
+  <mat-toolbar-row>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon" [routerLink]="'/home'">flight_takeof</mat-icon>
+    <span>Air Reservation System</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" *ngIf="!currentUser" aria-hidden="false" aria-label="Example login icon" (click)="openDialog()">person</mat-icon>
+    <a  *ngIf="currentUser" (click)="logout()">Logout</a>
+    <ngx-avatar class="my-avatar" *ngIf="currentUser" bgColor="white" fgColor="blue" name="{{currentUser.firstName}} {{currentUser.lastName}}" size="25" [routerLink]="['/user-profile', currentUser.id]"></ngx-avatar>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example menu icon" (click)="sidenav.toggle()">menu</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav position="end">
+    <mat-nav-list>
+      <a *ngIf="loggedInAsAdmin" mat-list-item [routerLink]="'/schedule-flights'" (click)="sidenav.toggle()"> Shedule Flights </a>
+      <a mat-list-item [routerLink]="'/flight-details'" (click)="sidenav.toggle()"> Flight Info </a>
+      <a mat-list-item [routerLink]="currentUser ? ['/booking-status'] : []" (click)="sidenav.toggle()"> Booking Status </a>
+      <a mat-list-item [routerLink]="'/activities'"> Arrivals </a>
+      <a mat-list-item [routerLink]="'/create-activity'"> Departures </a>
+      <a mat-list-item [routerLink]="'/create-account'"> On Ground </a>
+      <a mat-list-item [routerLink]="'/contacts'"> Routes </a>
+      <a mat-list-item [routerLink]="'/create-contact'"> Reviews </a>
+      <!-- <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a> -->
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+        <section>
+      <router-outlet></router-outlet>
+      </section>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<alert></alert>
+<!-- <section>
+  <router-outlet></router-outlet>
+</section> -->

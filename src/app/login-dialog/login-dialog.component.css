@@ -1,0 +1,34 @@
+/* h1 {
+    text-align: center;
+} */
+
+div mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+div mat-dialog-content > * {
+  width: 100%;
+}
+
+.login-form-field {
+  width: -webkit-fill-available;
+  /* margin-bottom: 50px; */
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
+button.mat-raised-button {
+  width: 100%;
+}
+
+a {
+  padding-top: 17px;
+  /* padding-left: 44%; */
+  color: slateblue;
+  text-decoration: none;
+}
+

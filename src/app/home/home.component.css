@@ -1,0 +1,15 @@
+.bg {
+    /* background-image: url("./../../assets/photo-1506012787146-f92b2d7d6d96.jpg"); */
+    height:30em;
+     background-size:cover; 
+     width:auto;
+     background-position:50% 50%;
+   
+}
+
+.logOut-label {
+    font-size: -webkit-xxx-large;
+    text-align: center;
+    padding-top: 68px;
+    font-family: cursive;
+}

@@ -1,0 +1,31 @@
+<div class="mat_dialog">
+  <div class="container">
+    <!-- <h1 mat-dialog-title>Login</h1> -->
+    <!-- <ngx-avatar class="my-avatar" value="R"></ngx-avatar> -->
+    <!-- <ngx-avatar gravatarId="elmosbahihaithem@gmail.com" size="70"></ngx-avatar> -->
+    <div class="avatar">
+      <ngx-avatar skypeId="Rajalakshmi Thandavam" size="100" ></ngx-avatar>
+    </div>
+    <!-- <br> -->
+    <!-- <ngx-avatar googleId="rajee.thandavam@gmail.com" [round]="false" size="70"></ngx-avatar> -->
+    <div mat-dialog-content>
+      <mat-form-field class="login-form-field">
+        <!-- <input matInput [(ngModel)]="data.username" placeholder="username" required> -->
+        <input id="email" name="email" #refEmail="ngModel" matInput type="email" email placeholder="Email Id" 
+        [(ngModel)]="data.username" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="login-form-field">
+        <input matInput id="password" [(ngModel)]="data.password" placeholder="password" [type]="hide ? 'password' : 'text'" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions> 
+      <!-- <button mat-raised-button color="primary" style="margin-right:5px;">register</button> -->
+      <!-- <button mat-raised-button color="primary" (click)="onNoClick()">No Thanks</button> -->
+      <button mat-raised-button color="primary" (click)="login()" style="margin-right:5px;">login</button>
+      <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
+      <a routerLink="/new-user" [mat-dialog-close]="data">Create New User</a>
+    </div>
+  </div>
+</div>
